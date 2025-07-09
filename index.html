@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeCalc - バイブカルク</title>
+    <meta name="description" content="音・光・感情で計算する、新世代の電卓">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes/neon.css">
+    <link rel="stylesheet" href="css/themes/nature.css">
+    <link rel="stylesheet" href="css/themes/synthwave.css">
+    <link rel="stylesheet" href="css/themes/zen.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <header class="calculator-header">
+            <h1 class="calculator-title">VibeCalc</h1>
+            <div class="theme-selector">
+                <button class="theme-btn active" data-theme="neon">Neon</button>
+                <button class="theme-btn" data-theme="nature">Nature</button>
+                <button class="theme-btn" data-theme="synthwave">Synthwave</button>
+                <button class="theme-btn" data-theme="zen">Zen</button>
+            </div>
+        </header>
+
+        <main class="calculator">
+            <div class="display-container">
+                <div class="history-display" id="historyDisplay"></div>
+                <div class="main-display" id="mainDisplay">0</div>
+            </div>
+
+            <div class="keypad">
+                <div class="keypad-row">
+                    <button class="calc-btn function-btn" data-action="clear">AC</button>
+                    <button class="calc-btn function-btn" data-action="clear-entry">C</button>
+                    <button class="calc-btn function-btn" data-action="backspace">⌫</button>
+                    <button class="calc-btn operator-btn" data-operator="÷">÷</button>
+                </div>
+                <div class="keypad-row">
+                    <button class="calc-btn number-btn" data-number="7">7</button>
+                    <button class="calc-btn number-btn" data-number="8">8</button>
+                    <button class="calc-btn number-btn" data-number="9">9</button>
+                    <button class="calc-btn operator-btn" data-operator="×">×</button>
+                </div>
+                <div class="keypad-row">
+                    <button class="calc-btn number-btn" data-number="4">4</button>
+                    <button class="calc-btn number-btn" data-number="5">5</button>
+                    <button class="calc-btn number-btn" data-number="6">6</button>
+                    <button class="calc-btn operator-btn" data-operator="-">−</button>
+                </div>
+                <div class="keypad-row">
+                    <button class="calc-btn number-btn" data-number="1">1</button>
+                    <button class="calc-btn number-btn" data-number="2">2</button>
+                    <button class="calc-btn number-btn" data-number="3">3</button>
+                    <button class="calc-btn operator-btn" data-operator="+">+</button>
+                </div>
+                <div class="keypad-row">
+                    <button class="calc-btn number-btn" data-number="0">0</button>
+                    <button class="calc-btn number-btn" data-number=".">.</button>
+                    <button class="calc-btn equals-btn" data-action="equals">=</button>
+                </div>
+            </div>
+
+            <div class="settings-panel">
+                <div class="volume-control">
+                    <label for="volumeSlider">音量</label>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="50">
+                </div>
+                <button class="sound-toggle" id="soundToggle">🔊</button>
+            </div>
+        </main>
+
+        <div class="history-panel" id="historyPanel">
+            <h3>計算履歴</h3>
+            <div class="history-list" id="historyList"></div>
+            <button class="clear-history-btn" id="clearHistoryBtn">履歴をクリア</button>
+        </div>
+    </div>
+
+    <script src="js/soundManager.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 

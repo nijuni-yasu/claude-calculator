@@ -1,0 +1,377 @@
+/* VibeCalc メインスタイル */
+:root {
+    /* デフォルトカラー（Neonテーマ） */
+    --primary-color: #00ff88;
+    --secondary-color: #ff0088;
+    --background-color: #0a0a0a;
+    --display-color: #ffffff;
+    --button-color: #1a1a1a;
+    --button-hover-color: #2a2a2a;
+    --button-active-color: #00ff88;
+    --text-color: #ffffff;
+    --shadow-color: rgba(0, 255, 136, 0.3);
+    
+    /* フォント */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-large: 2.5rem;
+    --font-size-medium: 1.2rem;
+    --font-size-small: 0.9rem;
+    
+    /* スペーシング */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* ボーダー */
+    --border-radius: 12px;
+    --border-width: 2px;
+    
+    /* トランジション */
+    --transition-fast: 0.1s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+/* ヘッダー */
+.calculator-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.calculator-title {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 0 10px var(--primary-color);
+    letter-spacing: 2px;
+}
+
+.theme-selector {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.theme-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: var(--border-width) solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    font-size: var(--font-size-small);
+    font-weight: bold;
+}
+
+.theme-btn:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+.theme-btn.active {
+    background: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+/* メイン電卓 */
+.calculator {
+    background: var(--button-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: 0 0 30px var(--shadow-color);
+    border: var(--border-width) solid var(--primary-color);
+}
+
+/* ディスプレイ */
+.display-container {
+    margin-bottom: var(--spacing-lg);
+}
+
+.history-display {
+    min-height: 2rem;
+    font-size: var(--font-size-small);
+    color: var(--secondary-color);
+    text-align: right;
+    margin-bottom: var(--spacing-sm);
+    opacity: 0.8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.main-display {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    text-align: right;
+    padding: var(--spacing-md);
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--primary-color);
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: inset 0 0 10px rgba(0, 255, 136, 0.1);
+}
+
+/* キーパッド */
+.keypad {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.keypad-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.keypad-row:last-child {
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.calc-btn {
+    padding: var(--spacing-lg);
+    border: var(--border-width) solid var(--primary-color);
+    background: var(--button-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.calc-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-normal);
+}
+
+.calc-btn:hover::before {
+    left: 100%;
+}
+
+.calc-btn:hover {
+    background: var(--button-hover-color);
+    box-shadow: 0 0 15px var(--shadow-color);
+    transform: translateY(-2px);
+}
+
+.calc-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 25px var(--shadow-color);
+}
+
+/* ボタンタイプ別スタイル */
+.number-btn {
+    background: var(--button-color);
+}
+
+.operator-btn {
+    background: var(--secondary-color);
+    color: var(--background-color);
+}
+
+.function-btn {
+    background: var(--button-color);
+    color: var(--secondary-color);
+}
+
+.equals-btn {
+    background: var(--primary-color);
+    color: var(--background-color);
+    grid-column: span 1;
+}
+
+/* 設定パネル */
+.settings-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--primary-color);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.volume-control label {
+    font-size: var(--font-size-small);
+    color: var(--text-color);
+}
+
+#volumeSlider {
+    width: 100px;
+    height: 4px;
+    background: var(--button-color);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.sound-toggle {
+    padding: var(--spacing-sm);
+    background: transparent;
+    border: var(--border-width) solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    transition: var(--transition-normal);
+}
+
+.sound-toggle:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+/* 履歴パネル */
+.history-panel {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--primary-color);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-panel h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+    font-size: var(--font-size-medium);
+}
+
+.history-list {
+    margin-bottom: var(--spacing-md);
+}
+
+.history-item {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--button-color);
+    font-size: var(--font-size-small);
+    display: flex;
+    justify-content: space-between;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.clear-history-btn {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background: var(--secondary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-small);
+    transition: var(--transition-normal);
+}
+
+.clear-history-btn:hover {
+    background: var(--primary-color);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .calculator {
+        padding: var(--spacing-md);
+    }
+    
+    .calc-btn {
+        padding: var(--spacing-md);
+        font-size: var(--font-size-small);
+    }
+    
+    .main-display {
+        font-size: var(--font-size-medium);
+        min-height: 3rem;
+    }
+    
+    .calculator-title {
+        font-size: var(--font-size-medium);
+    }
+}
+
+@media (max-width: 360px) {
+    .keypad-row {
+        gap: var(--spacing-xs);
+    }
+    
+    .calc-btn {
+        padding: var(--spacing-sm);
+    }
+    
+    .theme-selector {
+        gap: var(--spacing-xs);
+    }
+    
+    .theme-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
+    }
+} 

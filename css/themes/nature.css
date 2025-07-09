@@ -1,0 +1,254 @@
+/* Nature テーマ - 自然をイメージした緑系カラー */
+
+.theme-nature {
+    --primary-color: #4ade80;
+    --secondary-color: #22c55e;
+    --background-color: #064e3b;
+    --display-color: #ffffff;
+    --button-color: #065f46;
+    --button-hover-color: #047857;
+    --button-active-color: #4ade80;
+    --text-color: #ffffff;
+    --shadow-color: rgba(74, 222, 128, 0.3);
+    --nature-glow: 0 0 10px var(--primary-color);
+    --nature-glow-strong: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+}
+
+.theme-nature .calculator-title {
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    color: var(--primary-color);
+}
+
+.theme-nature .calculator {
+    box-shadow: 0 0 30px var(--shadow-color), inset 0 0 20px rgba(74, 222, 128, 0.1);
+    border: 2px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--button-color), #0f766e);
+}
+
+.theme-nature .main-display {
+    box-shadow: inset 0 0 15px rgba(74, 222, 128, 0.2);
+    border: 2px solid var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+    background: linear-gradient(135deg, var(--background-color), #0f766e);
+}
+
+.theme-nature .calc-btn {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 5px var(--shadow-color);
+    text-shadow: 0 0 3px currentColor;
+    background: linear-gradient(135deg, var(--button-color), #047857);
+}
+
+.theme-nature .calc-btn:hover {
+    box-shadow: 0 0 15px var(--shadow-color), 0 0 25px var(--shadow-color);
+    text-shadow: 0 0 5px currentColor;
+    background: linear-gradient(135deg, var(--button-hover-color), #059669);
+}
+
+.theme-nature .calc-btn:active {
+    box-shadow: 0 0 25px var(--shadow-color), 0 0 35px var(--shadow-color);
+}
+
+.theme-nature .operator-btn {
+    background: linear-gradient(135deg, var(--secondary-color), #16a34a);
+    color: var(--background-color);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+}
+
+.theme-nature .operator-btn:hover {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.5), 0 0 25px rgba(34, 197, 94, 0.3);
+    background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.theme-nature .equals-btn {
+    background: linear-gradient(135deg, var(--primary-color), #22c55e);
+    color: var(--background-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.theme-nature .equals-btn:hover {
+    box-shadow: 0 0 20px var(--shadow-color), 0 0 30px var(--shadow-color);
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.theme-nature .function-btn {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+}
+
+.theme-nature .function-btn:hover {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+}
+
+.theme-nature .theme-btn {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    text-shadow: 0 0 3px var(--primary-color);
+}
+
+.theme-nature .theme-btn:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+.theme-nature .theme-btn.active {
+    background: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 20px var(--shadow-color);
+    animation: nature-glow 2s ease-in-out infinite;
+}
+
+.theme-nature .settings-panel {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+    background: linear-gradient(135deg, var(--background-color), #0f766e);
+}
+
+.theme-nature #volumeSlider {
+    background: var(--button-color);
+}
+
+.theme-nature #volumeSlider::-webkit-slider-thumb {
+    background: var(--primary-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.theme-nature .sound-toggle {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    text-shadow: 0 0 3px var(--primary-color);
+}
+
+.theme-nature .sound-toggle:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+.theme-nature .history-panel {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--shadow-color);
+    background: linear-gradient(135deg, var(--background-color), #0f766e);
+}
+
+.theme-nature .history-panel h3 {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+.theme-nature .history-item {
+    border-bottom-color: var(--button-color);
+}
+
+.theme-nature .clear-history-btn {
+    background: linear-gradient(135deg, var(--secondary-color), #16a34a);
+    color: var(--background-color);
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+}
+
+.theme-nature .clear-history-btn:hover {
+    background: linear-gradient(135deg, var(--primary-color), #22c55e);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+/* Natureテーマ特有のアニメーション */
+.theme-nature .calc-btn::before {
+    background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.3), transparent);
+}
+
+.theme-nature .operator-btn::before {
+    background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.3), transparent);
+}
+
+/* 自然の呼吸効果 */
+.theme-nature .calculator {
+    animation: nature-breathe 4s ease-in-out infinite;
+}
+
+@keyframes nature-breathe {
+    0%, 100% {
+        box-shadow: 0 0 30px var(--shadow-color), inset 0 0 20px rgba(74, 222, 128, 0.1);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 40px var(--shadow-color), inset 0 0 25px rgba(74, 222, 128, 0.15);
+        transform: scale(1.02);
+    }
+}
+
+/* 葉っぱの揺れ効果 */
+.theme-nature .calc-btn {
+    position: relative;
+}
+
+.theme-nature .calc-btn::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50% 0 50% 50%;
+    opacity: 0.3;
+    animation: leaf-sway 3s ease-in-out infinite;
+}
+
+@keyframes leaf-sway {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        transform: rotate(15deg) scale(1.1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: rotate(-10deg) scale(0.9);
+        opacity: 0.7;
+    }
+    75% {
+        transform: rotate(5deg) scale(1.05);
+        opacity: 0.4;
+    }
+}
+
+/* 自然の光効果 */
+.theme-nature .calculator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(74, 222, 128, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: nature-light 6s ease-in-out infinite;
+}
+
+@keyframes nature-light {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+/* 自然のグロー効果 */
+@keyframes nature-glow {
+    0%, 100% {
+        box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    }
+    50% {
+        box-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--primary-color), 0 0 40px var(--primary-color);
+    }
+} 
