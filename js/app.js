@@ -84,6 +84,7 @@ class VibeCalcApp {
         numberButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 const number = e.target.dataset.number;
+                console.log('Number button clicked:', number);
                 if (number && window.calculator) {
                     if (number === '.') {
                         window.calculator.inputDecimal();
@@ -107,6 +108,7 @@ class VibeCalcApp {
         operatorButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 const operator = e.target.dataset.operator;
+                console.log('Operator button clicked:', operator);
                 if (operator && window.calculator) {
                     window.calculator.inputOperator(operator);
                     
@@ -138,7 +140,8 @@ class VibeCalcApp {
                             window.calculator.backspace();
                             break;
                         case 'equals':
-                            window.calculator.performCalculation();
+                            console.log('Equals button clicked');
+                            window.calculator.calculate();
                             break;
                     }
                     
@@ -230,7 +233,7 @@ class VibeCalcApp {
             
             // 等号
             else if (key === 'Enter' || key === '=') {
-                window.calculator.performCalculation();
+                window.calculator.calculate();
                 this.highlightButton('[data-action="equals"]');
             }
             

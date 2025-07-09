@@ -32,15 +32,23 @@ class Calculator {
      * @param {string} digit - 入力する数字
      */
     inputDigit(digit) {
+        console.log('=== Input digit ===');
+        console.log('Digit:', digit);
+        console.log('Current display:', this.display);
+        console.log('Waiting for operand:', this.waitingForOperand);
+        
         if (this.waitingForOperand) {
             this.display = digit;
             this.waitingForOperand = false;
+            console.log('Reset display to:', this.display);
         } else {
             this.display = this.display === '0' ? digit : this.display + digit;
+            console.log('Updated display to:', this.display);
         }
         
         this.updateDisplay();
         this.playButtonSound(digit);
+        console.log('=== Digit input completed ===');
     }
     
     /**
@@ -63,13 +71,22 @@ class Calculator {
      * @param {string} nextOperation - 演算子
      */
     inputOperator(nextOperation) {
+        console.log('=== Input operator ===');
+        console.log('Operator:', nextOperation);
+        console.log('Current display:', this.display);
+        console.log('Previous value:', this.previousValue);
+        console.log('Current operation:', this.operation);
+        
         const inputValue = parseFloat(this.display);
+        console.log('Input value:', inputValue);
         
         if (this.previousValue === null) {
             this.previousValue = inputValue;
+            console.log('Set previous value:', this.previousValue);
         } else if (this.operation) {
             const currentValue = this.previousValue || 0;
             const newValue = this.performCalculation(currentValue, inputValue, this.operation);
+            console.log('Chained calculation:', currentValue, this.operation, inputValue, '=', newValue);
             
             this.display = String(newValue);
             this.previousValue = newValue;
@@ -77,9 +94,12 @@ class Calculator {
         
         this.waitingForOperand = true;
         this.operation = nextOperation;
+        console.log('Set operation:', this.operation);
+        console.log('Set waiting for operand:', this.waitingForOperand);
         
         this.updateDisplay();
         this.playButtonSound(nextOperation);
+        console.log('=== Operator input completed ===');
     }
     
     /**
@@ -111,15 +131,24 @@ class Calculator {
     /**
      * 等号を押した時の処理
      */
-    performCalculation() {
+    calculate() {
+        console.log('=== Calculate method called ===');
+        console.log('Current display:', this.display);
+        console.log('Previous value:', this.previousValue);
+        console.log('Operation:', this.operation);
+        console.log('Waiting for operand:', this.waitingForOperand);
+        
         const inputValue = parseFloat(this.display);
+        console.log('Input value:', inputValue);
         
         if (this.previousValue === null || this.operation === null) {
+            console.log('Cannot calculate: missing previous value or operation');
             return;
         }
         
         const currentValue = this.previousValue || 0;
         const newValue = this.performCalculation(currentValue, inputValue, this.operation);
+        console.log('Calculation result:', newValue);
         
         // 履歴に追加
         const historyItem = {
@@ -137,6 +166,7 @@ class Calculator {
         
         this.updateDisplay();
         this.playCalculationSound();
+        console.log('=== Calculation completed ===');
     }
     
     /**
